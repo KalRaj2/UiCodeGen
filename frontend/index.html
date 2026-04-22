@@ -1,26 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>UiCodeGenerator</title>
+  <title>UI Code Generator</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>UiCodeGenerator</h2>
+<div class="header">
+  <h1>UI Code Generator</h1>
+</div>
 
-<input type="file" id="upload" />
+<div class="main">
 
-<div class="container">
+  <!-- LEFT -->
   <div class="left">
-    <canvas id="canvas"></canvas>
+
+    <input type="file" id="upload">
+
+    <div class="controls">
+      <button onclick="zoomIn()">+</button>
+      <button onclick="zoomOut()">-</button>
+    </div>
+
+    <div class="preview" id="preview">
+      <img id="img">
+      <canvas id="canvas"></canvas>
+
+      <select id="selector">
+        <option value="">Select Element</option>
+        <option value="button">Button</option>
+        <option value="input">Input</option>
+        <option value="checkbox">Checkbox</option>
+        <option value="text">Text</option>
+        <option value="link">Link</option>
+      </select>
+    </div>
+
+    <button id="generate">Generate Code</button>
+
   </div>
 
+  <!-- RIGHT -->
   <div class="right">
-    <h3>Generated HTML</h3>
+
+    <div class="code-controls">
+      <button onclick="codeZoomIn()">A+</button>
+      <button onclick="codeZoomOut()">A-</button>
+    </div>
+
     <textarea id="code"></textarea>
-    <button onclick="renderPreview()">Preview</button>
-    <iframe id="preview"></iframe>
+
+    <iframe id="previewFrame"></iframe>
+
   </div>
+
 </div>
 
 <script src="app.js"></script>
